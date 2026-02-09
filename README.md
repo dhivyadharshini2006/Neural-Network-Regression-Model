@@ -1,5 +1,6 @@
 # Developing a Neural Network Regression Model
-
+## NAME:DHIVYA DHARSHINI B
+## REG NO:212223240031
 ## AIM
 
 To develop a neural network regression model for the given dataset.
@@ -149,4 +150,3 @@ print(f"Predicted Spending Score: {prediction}")
 ## RESULT
 Thus a Neural Network Regression Model is developed sucessfully.
 
-Include your result here

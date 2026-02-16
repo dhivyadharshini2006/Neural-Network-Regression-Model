@@ -22,7 +22,8 @@ Output layer
 
 ## Neural Network Model
 
-![Uploading image.png…]()
+<img width="979" height="681" alt="image" src="https://github.com/user-attachments/assets/e23e61de-4635-4b85-bc9b-823efe485612" />
+
 
 
 ## DESIGN STEPS
@@ -56,8 +57,6 @@ Plot the performance plot
 Evaluate the model with the testing data.
 
 ## PROGRAM
-### Name:
-### Register Number:
 ```python
 import torch
 import torch.nn as nn

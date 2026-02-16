@@ -7,11 +7,23 @@ To develop a neural network regression model for the given dataset.
 
 ## THEORY
 
-Explain the problem statement
+The model is a:
+
+Feedforward Artificial Neural Network (ANN)
+Also called a Multilayer Perceptron (MLP).
+
+It contains:
+
+Input layer
+
+Two hidden layers
+
+Output layer
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+![Uploading image.png…]()
+
 
 ## DESIGN STEPS
 

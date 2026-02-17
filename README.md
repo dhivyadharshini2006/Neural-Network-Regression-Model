@@ -67,7 +67,7 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 # Load Dataset
-dataset1 = pd.read_csv('/Dhata.csv')
+dataset1 = pd.read_csv('/content/Dhata.csv')
 print(dataset1.head(10))
 X = dataset1[['Input']].values
 y = dataset1[['Output']].values
@@ -103,59 +103,80 @@ class NeuralNet(nn.Module):
         return x
 
 # Initialize Model, Loss and Optimizer
-ai_brain = NeuralNet()
+ai_dhivya = NeuralNet()
 criterion = nn.MSELoss()
-optimizer = optim.RMSprop(ai_brain.parameters(), lr=0.001)
+optimizer = optim.RMSprop(ai_dhivya.parameters(), lr=0.001)
 
 # Training Function
-def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
+def train_model(ai_dhivya, X_train, y_train, criterion, optimizer, epochs=2000):
     for epoch in range(epochs):
         optimizer.zero_grad()
-        loss = criterion(ai_brain(X_train), y_train)
+        loss = criterion(ai_dhivya(X_train), y_train)
         loss.backward()
         optimizer.step()
-        ai_brain.history['loss'].append(loss.item())
+        ai_dhivya.history['loss'].append(loss.item())
 
         if epoch % 200 == 0:
             print(f"Epoch [{epoch}/{epochs}], Loss: {loss.item():.6f}")
 
 # Train the Model
-train_model(ai_brain, X_train_tensor, y_train_tensor, criterion, optimizer)
+train_model(ai_dhivya, X_train_tensor, y_train_tensor, criterion, optimizer)
 
 # Test Evaluation
 with torch.no_grad():
-    test_loss = criterion(ai_brain(X_test_tensor), y_test_tensor)
+    test_loss = criterion(ai_dhivya(X_test_tensor), y_test_tensor)
     print(f"Test Loss: {test_loss.item():.6f}")
-
+print("Name:Dhivya Dharshini B")
+print("Reg No :212223240031")
 # Plot Loss
-loss_df = pd.DataFrame(ai_brain.history)
+loss_df = pd.DataFrame(ai_dhivya.history)
 loss_df.plot()
 plt.xlabel("Epochs")
 plt.ylabel("Loss")
 plt.title("Training Loss vs Epochs")
 plt.show()
 
-# New Sample Prediction
-X_new = torch.tensor([[9]], dtype=torch.float32)
+# Take user input
+user_input = float(input("Enter Input Value: "))
+
+# Convert to tensor
+X_new = torch.tensor([[user_input]], dtype=torch.float32)
+
+# Scale input
 X_new_scaled = torch.tensor(scaler.transform(X_new), dtype=torch.float32)
 
-prediction = ai_brain(X_new_scaled).item()
-print(f"Predicted Spending Score: {prediction}")
+# Predict
+with torch.no_grad():
+    prediction = ai_dhivya(X_new_scaled).item()
+
+print(f"Predicted Output: {prediction}")
+
+
 ```
 ## Dataset Information
-<img width="294" height="251" alt="image" src="https://github.com/user-attachments/assets/f8ba597b-ef21-4cc3-9bd8-4c1147181cd0" />
 
+<img width="214" height="252" alt="image" src="https://github.com/user-attachments/assets/9ea7f318-c782-4837-9716-34ce6503e6d1" />
 
 
 ## OUTPUT
 
+
+
+### Epoch Loss
+
+<img width="363" height="239" alt="image" src="https://github.com/user-attachments/assets/df277346-74e0-4965-a155-9600bde953c4" />
+
 ### Training Loss Vs Iteration Plot
 
-<img width="589" height="455" alt="image" src="https://github.com/user-attachments/assets/749f870f-fee4-4e6e-b062-88ce26872ec3" />
+
+<img width="762" height="620" alt="image" src="https://github.com/user-attachments/assets/15677c83-4e09-41b0-8d66-36487e7371e6" />
+
 
 
 ### New Sample Data Prediction
-<img width="383" height="243" alt="image" src="https://github.com/user-attachments/assets/6df48203-92f1-4405-a04e-776b2c899adb" />
+
+
+<img width="365" height="44" alt="image" src="https://github.com/user-attachments/assets/39944c16-093d-4479-b048-f8a24a5c0fc0" />
 
 
 ## RESULT
